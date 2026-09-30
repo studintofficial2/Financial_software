@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#071A3C"><meta name="format-detection" content="telephone=no"><title>StudINT Accounts</title>
+<link rel="icon" type="image/png" href="favicon.png"><link rel="apple-touch-icon" href="favicon.png"><link rel="manifest" href="manifest.webmanifest">
+<meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="StudINT"><meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="stylesheet" href="style.css"></head><body class="dashbg">
+<video id="bgv" src="dashboard.mp4" muted loop playsinline webkit-playsinline disablepictureinpicture aria-hidden="true" preload="auto"></video><video id="bgp" src="pages.mp4" muted loop playsinline webkit-playsinline disablepictureinpicture aria-hidden="true" preload="auto"></video>
+<header><img src="logo.png" alt="StudINT - Student's choice not ours"></header>
+<nav id="nav"><button onclick="tab('dash')" id="b-dash" class="on">Dashboard</button><button onclick="tab('plan')" id="b-plan">Budget plan</button><button onclick="tab('add')" id="b-add">Add transaction</button><button onclick="tab('list')" id="b-list">Transactions</button><button onclick="tab('sum')" id="b-sum">Summary</button></nav>
+<main>
+<section id="dash"><div class="grid" id="dk"></div>
+<div class="card"><h3>Expense budget used (this financial year)</h3><div class="bar"><i id="bar"></i></div><p id="bt"></p></div>
+<div class="card"><h3>Student targets by intake</h3><div id="it"></div></div>
+<div class="card"><h3>Income vs expense by month</h3><div class="leg"><span style="background:var(--navy)"></span>Income<span style="background:var(--red)"></span>Expense</div><div class="chart" id="ch"></div></div></section>
+<section id="plan" hidden><div class="grid" id="pk"></div>
+<div class="card" id="pi"></div>
+<div class="card" id="pw"></div></section>
+<section id="add" class="card" hidden><h2>New transaction</h2>
+<form id="f" onsubmit="save(event)"><div class="grid">
+<div><label>Date</label><input type="date" name="date" id="date" required></div>
+<div><label>Branch</label><select name="branch" id="branch"></select></div>
+<div><label>Type</label><select name="type" id="type" onchange="cats()"></select></div>
+<div><label>Category</label><select name="category" id="cat" onchange="boxes()"></select></div>
+<div><label>Amount (₹)</label><input type="number" name="amount" min="0" step="0.01" required></div>
+<div><label>Payment mode</label><select name="mode"><option>Bank transfer</option><option>UPI</option><option>Cash</option><option>Card</option><option>Cheque</option></select></div>
+</div>
+<div class="grid" id="stuBox" hidden style="margin-top:4px">
+<div><label>Student name</label><input name="student" id="student" placeholder="Student full name"></div>
+<div><label>Intake</label><select name="intake" id="intake"></select></div>
+<div><label>University</label><input name="university" list="unis" placeholder="University name"></div></div>
+<div class="grid" id="stfBox" hidden style="margin-top:4px">
+<div><label>Name of the staff</label><input name="staff" id="staffName" list="staffs" placeholder="Staff member name"></div>
+<div><label>Staff type</label><select name="stafftype" id="stafftype"></select></div></div>
+<datalist id="unis"></datalist><datalist id="staffs"></datalist>
+<label>Description</label><input name="description" placeholder="e.g. commission for student Rahul - UK intake">
+<button class="btn">Save</button> <span id="msg"></span></form></section>
+<section id="list" class="card" hidden><h2>Transactions</h2><div class="wrap"><table id="t"></table></div></section>
+<section id="sum" hidden><div class="grid" id="kpi"></div><div class="card"><h3>Staff salary</h3><div class="wrap" id="ss"></div></div>
+<div class="card"><h3>Commission by university</h3><div class="wrap"><table id="su"></table></div></div>
+<div class="card"><h3>By month</h3><div class="wrap"><table id="m"></table></div></div></section>
+</main>
+<script src="script.js"></script></body></html>

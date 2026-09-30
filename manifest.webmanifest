@@ -1,0 +1,25 @@
+{
+ "name": "StudINT Accounts",
+ "short_name": "StudINT",
+ "description": "Student's choice not ours",
+ "start_url": ".",
+ "scope": ".",
+ "display": "standalone",
+ "orientation": "any",
+ "background_color": "#ffffff",
+ "theme_color": "#071A3C",
+ "icons": [
+  {
+   "src": "favicon.png",
+   "sizes": "192x192",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "favicon.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "any"
+  }
+ ]
+}
